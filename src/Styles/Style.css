@@ -1,0 +1,230 @@
+html{--displayHeight: 100%;
+    --inputHeight: 30px;
+    --inputWidth: 90%;
+    --background: #282c34;
+    --buttonHover: #353b46;
+    --backgroundInput: #4f586b;
+    --buttonText: #fafafa;
+    --fontSize: calc(10px + 2vmin);
+    --padding: 10px;
+    --maxWidth: 800px;
+    --minWidth: 300px;
+    }
+    
+    body::-webkit-scrollbar {
+      display: none;
+    }
+    
+    *{
+      margin: 0;
+      padding: 0;
+      margin-block-start: 0px;
+      margin-block-end: 0px;
+    }
+    
+    .card{
+      margin-bottom: 10px;
+      
+    }
+    
+    .underlineDiv{
+      border-bottom: 1px solid rgba(255, 255, 255, 0.164);
+    }
+    
+    
+    body{
+      background-color: var(--background);  
+    }
+    
+    
+    
+    .App {
+      margin: 0 auto;
+      text-align: center;
+      background-color: var(--background);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: var(--fontSize);
+      color: white;
+    }
+    
+    .mainContent{  
+      background-color: var(--background);
+      display: grid;
+      grid-template-columns:  minmax(250px, 1fr) minmax(250px, 1fr) ;
+      grid-template-rows:  minmax(120px, .6fr) minmax(800px, 5fr);
+      grid-template-areas: "header header"
+                            "inputGrid outputGrid";
+      justify-content: center;
+      justify-items: center;
+      align-items: start;
+      
+    }
+    
+    .header{
+      grid-area: header;
+      padding: 30px;
+    }
+    
+    .inputDisplay{
+      grid-area: inputGrid;
+      margin-top: 20px;
+      padding: 20px 0px;
+      background-color: #4f586b;
+      border: none;
+      border-radius: 5px;
+      width: 90%;
+      height: auto;
+      max-width: var(--maxWidth);
+      min-width: var(--minWidth);
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+    }
+    
+    .inputFields{
+      border: none;
+      border-radius: 5px;
+      margin: 5px;
+      padding-left: 5px;
+      width: var(--inputWidth);
+      height: var(--inputHeight);
+    }
+
+    input:focus{
+      background-color: #e9e9e9;
+      animation: inputAnim .3s ease-in-out;
+    }
+
+    @keyframes inputAnim{
+      0%{transform: scale(1);}
+      50%{transform: scale(1.01);}
+      100%{transform: scale(1);}
+    }
+    
+    .workExperience, .personalDiv, .education {
+      margin-bottom: 30px;
+      width: 100%;
+    }
+    
+    .inputBtns{
+      border: none;
+      margin-top: 10px;
+      border-radius: 5px;
+      width: var(--inputWidth);
+      height: calc(var(--inputHeight) * 1.3);
+      background-color: var(--background);
+      color: var(--buttonText);
+    }
+    
+    .inputBtns:hover{
+      background-color: var(--buttonHover);
+    }
+
+
+    
+    .saveToPDF{
+      margin: 20px;
+      max-width: 350px;
+    }
+    
+    .aboutYou{
+      height: 70px;
+      overflow-y: scroll;
+    }
+    
+    /* Display CV*/
+    
+    .displayCv{
+      grid-area: outputGrid;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      width: 90%;
+      height: auto;
+      max-width: var(--maxWidth);
+      min-width: var(--minWidth);
+      border-radius: 5px;
+      background-color: #4f586b;
+      font-size: calc(var(--fontSize)*.55);
+      text-align: left;
+      display: grid;
+      grid-template-rows: minmax(100px, .5fr) minmax(800px, 5fr) minmax(100px, .5fr);
+      grid-template-columns: minmax(200px, 2fr) minmax(100px, 1fr);
+      grid-template-areas: "header header"
+                           "leftContent rightContent"
+                           "footer footer";
+    }
+    
+    .displayHeader{
+      border-radius: 5px 5px 0 0;
+      padding: 10px;
+      grid-area: header;
+      background-color: #747b88;
+    }
+    
+    .fornavn::placeholder{
+      content: "hej";
+    }
+    
+    .displayFooter{
+      grid-area: footer;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .displayLeft{
+      
+      min-height: 1000px;
+      grid-area: leftContent;
+    }
+    
+    .displayRight{
+      grid-area: rightContent;
+      text-align: center;
+    }
+    
+    .displayEducation, .displayExperience, .displayDescription{
+      display: flex;
+      flex-direction: column;
+      margin: 10px;
+      padding: 15px 10px;
+    }
+    
+    .underLine{
+      font-size: calc(var(--fontSize)*.9);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.327);
+      margin-bottom: 10px;
+    }
+    
+    .cvPicture{
+      margin: 20px auto;
+      height: 200px;
+      width: 80%;
+      border: 1px solid yellow;
+    }
+    
+    .displayAddress, .displayNumber, .displayEmail{
+      margin-bottom: 20px;
+    }
+    
+    .displayAddress > p, .displayNumber > p, .displayEmail > p{
+      font-weight: 100;
+      font-style: oblique;
+    }
+
+
+    /* Mobile */
+
+    @media (max-width:700px){
+      .mainContent{  
+        display: grid;
+        grid-template-columns:  minmax(250px, 1fr)  ;
+        grid-template-rows:  minmax(120px, .6fr) minmax(800px, 5fr) minmax(800px, 5fr);
+        grid-template-areas:  "header"
+                              "inputGrid" 
+                              "outputGrid";
+    }
+  }
